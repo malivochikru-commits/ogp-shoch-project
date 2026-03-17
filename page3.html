@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Экономические и культурные права — Права Человека в Узбекистане 2026</title>
+  <meta name="description"
+    content="Экономические и культурные права по Конституции Узбекистана: труд, собственность, предпринимательство, образование, культура">
+  <link rel="stylesheet" href="shared.css">
+  <link rel="stylesheet" href="banner.css">
+  <style>
+    .eco-card {
+      padding: 32px 26px;
+      background: rgba(255, 255, 255, .02);
+      border: 1px solid rgba(245, 158, 11, .1);
+      position: relative;
+      overflow: hidden;
+      transition: background .4s, border-color .4s, transform .3s;
+    }
+
+    .eco-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background: linear-gradient(90deg, #f59e0b, #10b981);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform .5s cubic-bezier(.77, 0, .18, 1);
+    }
+
+    .eco-card:hover {
+      background: rgba(245, 158, 11, .04);
+      border-color: rgba(245, 158, 11, .3);
+      transform: translateY(-4px);
+    }
+
+    .eco-card:hover::before {
+      transform: scaleX(1);
+    }
+
+    .eco-card-icon {
+      font-size: 36px;
+      margin-bottom: 14px;
+    }
+
+    .eco-card-num {
+      font-size: 9px;
+      letter-spacing: 4px;
+      color: var(--rust);
+      margin-bottom: 8px;
+      font-family: 'Bebas Neue';
+    }
+
+    .eco-card-title {
+      font-family: 'Bebas Neue';
+      font-size: 24px;
+      color: var(--paper);
+      margin-bottom: 10px;
+    }
+
+    .eco-card-text {
+      font-size: 13px;
+      line-height: 1.8;
+      color: var(--fog2);
+    }
+
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2px;
+    }
+
+    .col-panel {
+      padding: 44px 36px;
+      background: rgba(255, 255, 255, .015);
+      border: 1px solid rgba(245, 158, 11, .08);
+    }
+
+    .col-panel h3 {
+      font-family: 'Bebas Neue';
+      font-size: clamp(20px, 2.3vw, 32px);
+      color: var(--paper);
+      margin-bottom: 14px;
+    }
+
+    .col-panel p {
+      font-size: 13px;
+      line-height: 1.9;
+      color: var(--fog2);
+      margin-bottom: 10px;
+    }
+
+    @media (max-width: 700px) {
+      .two-col {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <canvas id="bg-canvas"></canvas>
+  <div class="cursor-dot" id="cdot"></div>
+  <div class="cursor-ring" id="cring"></div>
+  <div class="page-transition" id="page-transition"></div>
+
+  <div id="preloader">
+    <div class="pre-label">Экономические права</div>
+    <div class="pre-num" id="pre-num">0</div>
+    <div class="pre-bar">
+      <div class="pre-fill" id="pre-fill"></div>
+    </div>
+    <div class="pre-tagline">Раздел 03</div>
+    <div class="pre-credits" style="font-family: 'Space Mono', monospace; font-size: 10px; letter-spacing: 2px; color: rgba(255,255,255,0.5); margin-top: 20px; text-transform: uppercase; text-align: center;">Сделали: Убайдуллаев Дильшод / Казбулатов Тагир</div>
+  </div>
+
+  <nav id="main-nav">
+    <a class="nav-logo" href="index.html">
+      <div class="nav-logo-dot"></div>ПРАВА &amp; СВОБОДЫ
+    </a>
+    <ul class="nav-links">
+      <li><a href="page1.html">Личные</a></li>
+      <li><a href="page2.html">Политические</a></li>
+      <li><a href="page3.html" class="active">Экономические</a></li>
+      <li><a href="page4.html">Социальные</a></li>
+      <li><a href="page5.html">Гарантии</a></li>
+    </ul>
+    <button class="nav-burger" id="nav-burger" aria-label="Меню"><span></span><span></span><span></span></button>
+  </nav>
+  <div class="nav-mobile" id="nav-mobile">
+    <button class="nav-close" id="nav-close">✕</button>
+    <a href="index.html">Главная</a><a href="page1.html">Личные права</a>
+    <a href="page2.html">Политические</a><a href="page3.html">Экономические</a>
+    <a href="page4.html">Социальные</a><a href="page5.html">Гарантии</a>
+  </div>
+
+  <section class="page-hero">
+    <div class="hero-orb hero-orb-1"
+      style="background:radial-gradient(circle,rgba(245,158,11,.18) 0%,transparent 70%);"></div>
+    <div class="hero-orb hero-orb-2"
+      style="background:radial-gradient(circle,rgba(16,185,129,.12) 0%,transparent 70%);"></div>
+    <div class="hero-number" style="color:rgba(245,158,11,.04);">03</div>
+    <div style="position:relative;z-index:2;max-width:1220px;">
+      <div class="hero-eyebrow"><span class="badge">РАЗДЕЛ 03 · КОНСТИТУЦИЯ РУз · СТ. 44–52</span> Экономика и культура
+      </div>
+      <h1 class="hero-title">
+        <span class="line"><span class="glitch" data-text="ЭКОНОМИЧЕСКИЕ">ЭКОНОМИЧЕСКИЕ</span></span>
+        <span class="line"><span class="em">и культурные</span></span>
+        <span class="line" style="color:#f59e0b;">ПРАВА</span>
+      </h1>
+      <p class="hero-desc">Право на труд, собственность, свободу предпринимательства и доступ к культурным ценностям —
+        всё это гарантирует Конституция Узбекистана. Основа экономической свободы и духовного развития гражданина.</p>
+      <div class="hero-btns">
+        <a href="#eco-rights" class="btn-primary" style="background:#f59e0b;color:#000;"><span class="inn">К правам
+            ↓</span></a>
+        <a href="page4.html" class="btn-outline">Следующий раздел →</a>
+      </div>
+    </div>
+    <div class="hero-scroll">Скролл</div>
+  </section>
+
+  <div class="marquee-strip">
+    <div class="marquee-track">
+      <div class="marquee-item">Право на труд</div>
+      <div class="marquee-item">Право на собственность</div>
+      <div class="marquee-item">Предпринимательство</div>
+      <div class="marquee-item">Право на образование</div>
+      <div class="marquee-item">Доступ к культуре</div>
+      <div class="marquee-item">Интеллектуальная собственность</div>
+      <div class="marquee-item">Право на труд</div>
+      <div class="marquee-item">Право на собственность</div>
+      <div class="marquee-item">Предпринимательство</div>
+      <div class="marquee-item">Право на образование</div>
+      <div class="marquee-item">Доступ к культуре</div>
+      <div class="marquee-item">Интеллектуальная собственность</div>
+    </div>
+  </div>
+
+  <section style="background:#0b0a06;">
+    <div class="sec-banner" data-title="ЭКОНОМИКА"></div>
+    <div class="big-text-row">
+      <div class="big-text-left">
+        <div class="sec-header">
+          <div class="sec-label"><span class="num">01</span> Экономика и культура</div>
+          <h2 class="sec-title">Свобода создавать<br><em>и владеть</em></h2>
+        </div>
+        <div class="body-text">
+          <p>Экономические права обеспечивают <strong>материальную основу достойной жизни</strong>: право на труд,
+            справедливое вознаграждение, владение имуществом и свободу ведения бизнеса без произвольного вмешательства.
+          </p>
+          <p>Культурные права гарантируют <strong>право на образование и доступ к культуре</strong>. Государство обязано
+            создавать условия для образования, сохранения культурного наследия и развития творчества.</p>
+          <p>Узбекистан реализует программы развития — <strong>«Новый Узбекистан 2026»</strong>, направленные на защиту
+            прав трудящихся, поддержку малого бизнеса и доступность образования.</p>
+        </div>
+      </div>
+      <div class="big-text-right">
+        <div class="highlight-box" style="border-left-color:#f59e0b;">
+          <p><strong>Принцип равных возможностей:</strong> Государство гарантирует равные права в труде, образовании и
+            культуре — независимо от пола, национальности, происхождения или имущественного положения.</p>
+        </div>
+        <div class="stat-grid" style="margin-top:24px;">
+          <div class="stat-item">
+            <div class="stat-val" style="color:#f59e0b;">9</div>
+            <div class="stat-desc">Лет бесплатного образования</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-val" style="color:#f59e0b;">6<sup>+</sup></div>
+            <div class="stat-desc">Экономических прав</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section style="background:#080804;padding:80px 56px;">
+    <div class="quote-block" style="max-width:820px;margin:0 auto;border-left-color:#f59e0b;">
+      <p>«Каждый имеет право на труд, свободный выбор работы, справедливые условия труда и защиту от безработицы»</p>
+      <cite>— Конституция РУз, статья 44</cite>
+    </div>
+  </section>
+
+  <section id="eco-rights" style="background:#0b0a06;">
+    <div class="sec-banner" data-title="ЭКОНОМИЧЕСКИЕ ПРАВА"></div>
+    <div class="sec-header">
+      <div class="sec-label"><span class="num">02</span> Ваши права</div>
+      <h2 class="sec-title">Экономические<br><em>и культурные права</em></h2>
+    </div>
+    <div class="grid-3">
+      <div class="eco-card">
+        <div class="eco-card-icon">💼</div>
+        <div class="eco-card-num">ПРАВО №1 · СТ. 44</div>
+        <div class="eco-card-title">Право на труд</div>
+        <div class="eco-card-text">Каждый вправе свободно выбирать профессию и место работы. Принудительный труд
+          запрещён. Трудовой кодекс РУз гарантирует безопасные условия работы, справедливую оплату и защиту от
+          незаконного увольнения.</div>
+      </div>
+      <div class="eco-card">
+        <div class="eco-card-icon">🏠</div>
+        <div class="eco-card-num">ПРАВО №2 · СТ. 46</div>
+        <div class="eco-card-title">Право собственности</div>
+        <div class="eco-card-text">Граждане вправе иметь в частной собственности любое законно приобретённое имущество.
+          Принудительное отчуждение допускается только на законных основаниях, с предварительным и равноценным
+          возмещением — по решению суда.</div>
+      </div>
+      <div class="eco-card">
+        <div class="eco-card-icon">🚀</div>
+        <div class="eco-card-num">ПРАВО №3 · СТ. 46</div>
+        <div class="eco-card-title">Свобода предпринимательства</div>
+        <div class="eco-card-text">Каждый имеет право на свободное занятие предпринимательством, пользование имуществом
+          для законной экономической деятельности. Государство поддерживает малый и средний бизнес: программы льготного
+          кредитования, налоговые каникулы.</div>
+      </div>
+      <div class="eco-card">
+        <div class="eco-card-icon">📚</div>
+        <div class="eco-card-num">ПРАВО №4 · СТ. 49</div>
+        <div class="eco-card-title">Право на образование</div>
+        <div class="eco-card-text">Государство гарантирует бесплатное общее образование. Дошкольное образование
+          обязательно с 2020 года. Высшее образование — на конкурсной основе за счёт государственных грантов. К 2026
+          году охват высшим образованием в Узбекистане превысил 40%.</div>
+      </div>
+      <div class="eco-card">
+        <div class="eco-card-icon">🎨</div>
+        <div class="eco-card-num">ПРАВО №5 · СТ. 42</div>
+        <div class="eco-card-title">Свобода творчества</div>
+        <div class="eco-card-text">Каждый имеет право на свободу научного и технического творчества, художественного и
+          литературного творчества. Интеллектуальная собственность охраняется государством. Авторские права закреплены
+          национальным и международным законодательством.</div>
+      </div>
+      <div class="eco-card">
+        <div class="eco-card-icon">🎭</div>
+        <div class="eco-card-num">ПРАВО №6 · СТ. 52</div>
+        <div class="eco-card-title">Доступ к культуре</div>
+        <div class="eco-card-text">Каждый вправе пользоваться культурными достижениями. Доступность музеев, библиотек и
+          культурных объектов — обязанность государства. Узбекистан хранит уникальное культурное наследие Самарканда,
+          Бухары, Хивы — объектов ЮНЕСКО.</div>
+      </div>
+    </div>
+  </section>
+
+  <section style="background:var(--ink);">
+    <div class="sec-header">
+      <div class="sec-label"><span class="num">03</span> В деталях</div>
+      <h2 class="sec-title">Трудовые права:<br><em>ваши гарантии</em></h2>
+    </div>
+    <div class="two-col">
+      <div class="col-panel">
+        <h3>Права работника</h3>
+        <ul class="arrow-list">
+          <li>Справедливая зарплата не ниже минимального размера оплаты труда</li>
+          <li>Безопасные условия труда, соответствующие санитарным нормам</li>
+          <li>Ежегодный оплачиваемый отпуск — не менее 15 рабочих дней</li>
+          <li>Защита от незаконного увольнения — суд восстановит в должности</li>
+          <li>Право на объединение в профсоюзы</li>
+          <li>Запрет дискриминации при приёме на работу</li>
+        </ul>
+      </div>
+      <div class="col-panel">
+        <h3>Права предпринимателя</h3>
+        <ul class="arrow-list">
+          <li>Свободный выбор вида и формы предпринимательства</li>
+          <li>Защита от незаконных проверок — принцип «единого окна»</li>
+          <li>Возмещение убытков, причинённых неправомерными действиями госорганов</li>
+          <li>Налоговые льготы для малого и среднего бизнеса</li>
+          <li>Защита коммерческой тайны и интеллектуальной собственности</li>
+          <li>Оспаривание штрафов и решений госорганов в суде</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section style="background:#080804;padding:80px 56px;">
+    <div class="stat-grid">
+      <div class="stat-item">
+        <div class="stat-val" style="color:#f59e0b;">15</div>
+        <div class="stat-desc">Дней минимальный отпуск</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-val" style="color:#f59e0b;">9</div>
+        <div class="stat-desc">Лет обязательной школы</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-val" style="color:#f59e0b;">40<sup>%</sup></div>
+        <div class="stat-desc">Охват высшим образованием в 2026</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-val" style="color:#f59e0b;">5</div>
+        <div class="stat-desc">Объектов ЮНЕСКО в Узбекистане</div>
+      </div>
+    </div>
+  </section>
+
+  <section
+    style="background:#040408;padding:56px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:20px;border-top:1px solid var(--border2);">
+    <a href="page2.html" class="btn-outline">← Политические права</a>
+    <div style="text-align:center;">
+      <div style="font-size:9px;letter-spacing:5px;text-transform:uppercase;color:var(--fog);margin-bottom:6px;">
+        Следующий раздел</div>
+      <div style="font-family:'Bebas Neue';font-size:20px;letter-spacing:2px;color:var(--paper);">
+        Социально-экологические права</div>
+    </div>
+    <a href="page4.html" class="btn-primary" style="background:#f59e0b;color:#000;"><span class="inn">Раздел 04
+        →</span></a>
+  </section>
+
+  <footer>
+    <div class="footer-logo">ПРАВА &amp; СВОБОДЫ · РУз</div>
+    <ul class="footer-nav">
+      <li><a href="page1.html">Личные</a></li>
+      <li><a href="page2.html">Политические</a></li>
+      <li><a href="page3.html">Экономические</a></li>
+      <li><a href="page4.html">Социальные</a></li>
+      <li><a href="page5.html">Гарантии</a></li>
+    </ul>
+    <div class="footer-copy">© 2026 ОГП-Проект<br><span style="opacity:0.5; margin-top:8px; display:inline-block; font-size:11px; letter-spacing:1px;">Сделали: Убайдуллаев Дильшод / Казбулатов Тагир</span></div>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="banner.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="shared.js"></script>
+  <script>
+    window.addEventListener('load', function () {
+      setTimeout(function () {
+        gsap.utils.toArray('.eco-card').forEach(function (el, i) {
+          gsap.from(el, { scrollTrigger: { trigger: el, start: 'top 88%' }, y: 50, opacity: 0, scale: .97, duration: .7, ease: 'expo.out', delay: (i % 3) * .12 });
+        });
+        gsap.utils.toArray('.col-panel').forEach(function (el, i) {
+          gsap.from(el, { scrollTrigger: { trigger: el, start: 'top 85%' }, x: i === 0 ? -40 : 40, opacity: 0, duration: .8, ease: 'expo.out' });
+        });
+      }, 200);
+    });
+  </script>
+  <style>
+    .eco-card {
+      text-align: center;
+    }
+  </style>
+</body>
+
+</html>

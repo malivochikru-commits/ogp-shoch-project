@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Права и Свободы Человека — Узбекистан 2026</title>
+  <meta name="description" content="Интерактивный проект о правах и свободах человека в Республике Узбекистан">
+  <link rel="stylesheet" href="shared.css">
+  <link rel="stylesheet" href="banner.css">
+  <style>
+    .home-hero {
+      min-height: 100vh;
+      position: relative;
+      display: flex;
+      align-items: center;
+      padding: 140px 56px 80px;
+      overflow: hidden;
+      z-index: 1;
+    }
+
+    .home-hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: linear-gradient(rgba(79, 142, 247, .04) 1px, transparent 1px), linear-gradient(90deg, rgba(79, 142, 247, .04) 1px, transparent 1px);
+      background-size: 72px 72px;
+      pointer-events: none;
+    }
+
+    .orb-center {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      width: clamp(300px, 50vw, 600px);
+      height: clamp(300px, 50vw, 600px);
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(79, 142, 247, .08) 0%, transparent 70%);
+      pointer-events: none;
+      filter: blur(60px);
+      animation: orbFloat 10s ease-in-out infinite;
+    }
+
+    .shield-svg {
+      position: absolute;
+      right: 8%;
+      top: 50%;
+      transform: translateY(-50%);
+      width: min(380px, 35vw);
+      opacity: .06;
+      pointer-events: none;
+      animation: shieldFloat 7s ease-in-out infinite;
+    }
+
+    @keyframes shieldFloat {
+
+      0%,
+      100% {
+        transform: translateY(-50%) rotate(-2deg)
+      }
+
+      50% {
+        transform: translateY(calc(-50% - 20px)) rotate(2deg)
+      }
+    }
+
+    .home-hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 780px;
+    }
+
+    #intro {
+      background: #080810;
+    }
+
+    .intro-cols {
+      display: grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap: 72px;
+      align-items: center;
+    }
+
+    .intro-visual {
+      position: relative;
+      aspect-ratio: 1;
+      max-width: 400px;
+      border: 1px solid var(--border2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .intro-visual::before,
+    .intro-visual::after {
+      content: '';
+      position: absolute;
+      border: 1px solid rgba(79, 142, 247, .15);
+      border-radius: 50%;
+      animation: ringPulse 3s ease-in-out infinite;
+    }
+
+    .intro-visual::before {
+      inset: 20%;
+      animation-delay: 0s;
+    }
+
+    .intro-visual::after {
+      inset: 5%;
+      animation-delay: 1.5s;
+    }
+
+    @keyframes ringPulse {
+
+      0%,
+      100% {
+        opacity: .3;
+        transform: scale(1)
+      }
+
+      50% {
+        opacity: .8;
+        transform: scale(1.03)
+      }
+    }
+
+    .intro-icon {
+      font-size: 88px;
+      position: relative;
+      z-index: 2;
+      filter: drop-shadow(0 0 24px rgba(79, 142, 247, .4));
+      animation: iconFloat 5s ease-in-out infinite;
+    }
+
+    @keyframes iconFloat {
+
+      0%,
+      100% {
+        transform: translateY(0)
+      }
+
+      50% {
+        transform: translateY(-12px)
+      }
+    }
+
+    .intro-corners::before,
+    .intro-corners::after {
+      content: '';
+      position: absolute;
+      width: 26px;
+      height: 26px;
+    }
+
+    .intro-corners::before {
+      top: 0;
+      left: 0;
+      border-top: 2px solid var(--accent);
+      border-left: 2px solid var(--accent);
+    }
+
+    .intro-corners::after {
+      bottom: 0;
+      right: 0;
+      border-bottom: 2px solid var(--accent2);
+      border-right: 2px solid var(--accent2);
+    }
+
+    #constitution {
+      background: #08080f;
+    }
+
+    .const-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2px;
+    }
+
+    .const-panel {
+      padding: 44px 36px;
+      background: rgba(255, 255, 255, .015);
+      border: 1px solid var(--border2);
+    }
+
+    .const-panel-label {
+      font-size: 9px;
+      letter-spacing: 5px;
+      text-transform: uppercase;
+      color: var(--rust);
+      margin-bottom: 12px;
+    }
+
+    .const-panel h3 {
+      font-family: 'Bebas Neue';
+      font-size: clamp(22px, 2.6vw, 36px);
+      color: var(--paper);
+      margin-bottom: 14px;
+      line-height: 1.05;
+    }
+
+    .const-panel p {
+      font-size: 13px;
+      line-height: 1.9;
+      color: var(--fog2);
+      margin-bottom: 12px;
+    }
+
+    #cta-section {
+      text-align: center;
+      padding: 120px 56px;
+      background: radial-gradient(ellipse at center, rgba(79, 142, 247, .08) 0%, transparent 70%);
+    }
+
+    .cta-title {
+      font-family: 'Bebas Neue';
+      font-size: clamp(44px, 7vw, 96px);
+      line-height: .92;
+      margin-bottom: 24px;
+    }
+
+    .cta-title .line {
+      display: block;
+      overflow: hidden;
+    }
+
+    .cta-btns {
+      display: flex;
+      gap: 14px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-top: 36px;
+    }
+
+    @media (max-width: 960px) {
+      .home-hero {
+        padding: 120px 32px 80px;
+      }
+
+      .shield-svg {
+        display: none;
+      }
+
+      .intro-cols {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+
+      .intro-visual {
+        max-width: 280px;
+        margin: 0 auto;
+      }
+
+      .const-layout {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .home-hero {
+        padding: 100px 20px 60px;
+      }
+
+      #cta-section {
+        padding: 80px 20px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <canvas id="bg-canvas"></canvas>
+  <div class="cursor-dot" id="cdot"></div>
+  <div class="cursor-ring" id="cring"></div>
+  <div class="page-transition" id="page-transition"></div>
+
+  <div id="preloader">
+    <div class="pre-label">Загрузка</div>
+    <div class="pre-num" id="pre-num">0</div>
+    <div class="pre-bar">
+      <div class="pre-fill" id="pre-fill"></div>
+    </div>
+    <div class="pre-tagline">Права и Свободы Человека</div>
+    <div class="pre-credits"
+      style="font-family: 'Space Mono', monospace; font-size: 30px; letter-spacing: 2px; color: rgba(255,255,255,0.5); margin-top: 20px; text-transform: uppercase; text-align: center;">
+      Сделали: Убайдуллаев Дильшод / Казбулатов Тагир</div>
+  </div>
+
+  <nav id="main-nav">
+    <a class="nav-logo" href="index.html">
+      <div class="nav-logo-dot"></div>ПРАВА &amp; СВОБОДЫ
+    </a>
+    <ul class="nav-links">
+      <li><a href="page1.html">Личные</a></li>
+      <li><a href="page2.html">Политические</a></li>
+      <li><a href="page3.html">Экономические</a></li>
+      <li><a href="page4.html">Социальные</a></li>
+      <li><a href="page5.html">Гарантии</a></li>
+    </ul>
+    <button class="nav-burger" id="nav-burger" aria-label="Меню"><span></span><span></span><span></span></button>
+  </nav>
+  <div class="nav-mobile" id="nav-mobile">
+    <button class="nav-close" id="nav-close">✕</button>
+    <a href="index.html">Главная</a>
+    <a href="page1.html">Личные права</a>
+    <a href="page2.html">Политические</a>
+    <a href="page3.html">Экономические</a>
+    <a href="page4.html">Социальные</a>
+    <a href="page5.html">Гарантии</a>
+  </div>
+
+  <!-- HERO -->
+  <section class="home-hero">
+    <div class="orb-center"></div>
+    <div class="hero-orb hero-orb-1"></div>
+    <div class="hero-orb hero-orb-2"></div>
+    <svg class="shield-svg" viewBox="0 0 200 240" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M100 10L20 40V110C20 160 60 200 100 220C140 200 180 160 180 110V40L100 10Z" stroke="white"
+        stroke-width="2" fill="none" />
+      <path d="M100 30L36 55V110C36 150 68 185 100 203C132 185 164 150 164 110V55L100 30Z" stroke="white"
+        stroke-width="1" fill="none" opacity=".4" />
+    </svg>
+    <div class="home-hero-content">
+      <div class="hero-eyebrow"><span class="badge">УЗБЕКИСТАН · КОНСТИТУЦИЯ · 2026</span></div>
+      <h1 class="hero-title">
+        <span class="line"><span class="glitch" data-text="ПРАВА">ПРАВА</span></span>
+        <span class="line"><span class="em">и свободы</span></span>
+        <span class="line"><span class="accent">ЧЕЛОВЕКА</span></span>
+      </h1>
+      <p class="hero-desc">Пять ключевых категорий прав и свобод, закреплённых в Конституции Республики Узбекистан.
+        Узнай, что защищает тебя каждый день.</p>
+      <div class="hero-btns">
+        <a href="page1.html" class="btn-primary"><span class="inn">Начать изучение →</span></a>
+        <a href="#topics" class="btn-outline">Все разделы</a>
+      </div>
+    </div>
+    <div class="hero-scroll">Скролл</div>
+  </section>
+
+  <!-- MARQUEE -->
+  <div class="marquee-strip">
+    <div class="marquee-track">
+      <div class="marquee-item">Личные права</div>
+      <div class="marquee-item">Политические права</div>
+      <div class="marquee-item">Экономические права</div>
+      <div class="marquee-item">Культурные права</div>
+      <div class="marquee-item">Социальные права</div>
+      <div class="marquee-item">Экологические права</div>
+      <div class="marquee-item">Гарантии прав</div>
+      <div class="marquee-item">Конституция РУз</div>
+      <div class="marquee-item">Личные права</div>
+      <div class="marquee-item">Политические права</div>
+      <div class="marquee-item">Экономические права</div>
+      <div class="marquee-item">Культурные права</div>
+      <div class="marquee-item">Социальные права</div>
+      <div class="marquee-item">Экологические права</div>
+      <div class="marquee-item">Гарантии прав</div>
+      <div class="marquee-item">Конституция РУз</div>
+    </div>
+  </div>
+
+  <!-- INTRO -->
+  <section id="intro">
+    <div class="sec-banner" data-title="О ПРОЕКТЕ"></div>
+    <div class="intro-cols">
+      <div>
+        <div class="sec-header">
+          <div class="sec-label"><span class="num">01</span> О проекте</div>
+          <h2 class="sec-title">Твои права —<br><em>твоя сила</em></h2>
+          <p class="sec-sub">Каждый гражданин Узбекистана обладает неотъемлемыми правами и свободами. Они закреплены в
+            Конституции и международных договорах. Знание своих прав — первый шаг к их защите.</p>
+        </div>
+        <ul class="arrow-list">
+          <li><strong>Конституция РУз 1992 года (редакция 2023)</strong> — основной закон, гарантирующий права каждого
+            человека</li>
+          <li><strong>Всеобщая декларация прав человека ООН</strong> — международный стандарт защиты прав</li>
+          <li><strong>5 категорий прав</strong> — от личной свободы до экологической безопасности</li>
+          <li><strong>Государственные органы</strong> — суды, прокуратура, омбудсмен обязаны защищать ваши права</li>
+        </ul>
+      </div>
+      <div style="display:flex;justify-content:center;">
+        <div class="intro-visual intro-corners">
+          <div class="intro-icon">⚖️</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TOPICS -->
+  <section id="topics">
+    <div class="sec-banner" data-title="РАЗДЕЛЫ"></div>
+    <div class="sec-header">
+      <div class="sec-label"><span class="num">02</span> Разделы</div>
+      <h2 class="sec-title">Пять категорий<br><em>прав</em></h2>
+      <p class="sec-sub">Выберите раздел, чтобы подробнее ознакомиться с каждой группой прав и свобод человека.</p>
+    </div>
+    <div class="topics-grid">
+      <a class="topic-card" href="page1.html">
+        <div class="topic-card-num">01</div>
+        <div class="topic-card-label">Раздел первый</div>
+        <div class="topic-card-title">Личные права и свободы личности</div>
+        <div class="topic-card-arrow">Изучить раздел →</div>
+        <div class="topic-card-bg-icon">🛡️</div>
+      </a>
+      <a class="topic-card" href="page2.html">
+        <div class="topic-card-num">02</div>
+        <div class="topic-card-label">Раздел второй</div>
+        <div class="topic-card-title">Политические права</div>
+        <div class="topic-card-arrow">Изучить раздел →</div>
+        <div class="topic-card-bg-icon">🗳️</div>
+      </a>
+      <a class="topic-card" href="page3.html">
+        <div class="topic-card-num">03</div>
+        <div class="topic-card-label">Раздел третий</div>
+        <div class="topic-card-title">Экономические и культурные права</div>
+        <div class="topic-card-arrow">Изучить раздел →</div>
+        <div class="topic-card-bg-icon">💼</div>
+      </a>
+      <a class="topic-card" href="page4.html">
+        <div class="topic-card-num">04</div>
+        <div class="topic-card-label">Раздел четвёртый</div>
+        <div class="topic-card-title">Социально-экологические права</div>
+        <div class="topic-card-arrow">Изучить раздел →</div>
+        <div class="topic-card-bg-icon">🌍</div>
+      </a>
+      <a class="topic-card" href="page5.html">
+        <div class="topic-card-num">05</div>
+        <div class="topic-card-label">Раздел пятый</div>
+        <div class="topic-card-title">Гарантии прав и свобод человека</div>
+        <div class="topic-card-arrow">Изучить раздел →</div>
+        <div class="topic-card-bg-icon">🏛️</div>
+      </a>
+    </div>
+  </section>
+
+  <!-- CONSTITUTION -->
+  <section id="constitution">
+    <div class="sec-banner" data-title="КОНСТИТУЦИЯ"></div>
+    <div class="sec-header">
+      <div class="sec-label"><span class="num">03</span> Конституция</div>
+      <h2 class="sec-title">Основной закон<br><em>государства</em></h2>
+    </div>
+    <div class="const-layout">
+      <div class="const-panel">
+        <div class="const-panel-label">Статья 19</div>
+        <h3>Неотчуждаемые права</h3>
+        <p>В Республике Узбекистан государство признаёт, соблюдает и защищает права и свободы человека, закреплённые
+          Конституцией и законами. Права и свободы человека принадлежат каждому от рождения и являются неотчуждаемыми.
+        </p>
+        <p>Осуществление прав и свобод одного человека не должно нарушать права, свободы и законные интересы другого
+          человека, государства и общества.</p>
+      </div>
+      <div class="const-panel">
+        <div class="const-panel-label">Статья 22</div>
+        <h3>Право на защиту</h3>
+        <p>Государство гарантирует судебную защиту прав и свобод человека. Каждый вправе защищать свои права и свободы
+          всеми не запрещёнными законом способами.</p>
+        <p>Каждый имеет право на квалифицированную юридическую помощь. В случаях, предусмотренных законом, юридическая
+          помощь оказывается бесплатно.</p>
+      </div>
+      <div class="const-panel">
+        <div class="const-panel-label">Международное право</div>
+        <h3>Международные обязательства</h3>
+        <p>Узбекистан ратифицировал основные международные пакты ООН о правах человека. Международные договоры,
+          ратифицированные Узбекистаном, являются составной частью правовой системы страны.</p>
+        <p>Если нормы международного договора, ратифицированного Узбекистаном, расходятся с нормами законодательства,
+          применяются нормы международного договора.</p>
+      </div>
+      <div class="const-panel">
+        <div class="const-panel-label">Статья 1</div>
+        <h3>Демократическое государство</h3>
+        <p>Узбекистан — суверенная, демократическая, правовая, светская и социальная республика. Единственным источником
+          государственной власти является народ.</p>
+        <p>Высшая ценность государства — человек, его жизнь, свобода, честь, достоинство и другие неотъемлемые права.
+          Государство существует для человека, а не наоборот.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- VIDEO -->
+
+  <!-- CTA -->
+  <section id="cta-section">
+    <div class="cta-title">
+      <span class="line">НАЧНИТЕ</span>
+      <span class="line"><em
+          style="font-family:'Cormorant Garamond';font-style:italic;color:var(--fog2);font-size:.85em">изучение</em></span>
+      <span class="line" style="color:var(--accent)">СЕЙЧАС</span>
+    </div>
+    <p style="font-size:15px;line-height:1.8;color:var(--fog2);max-width:460px;margin:0 auto;">Каждый раздел наполнен
+      подробными материалами, видеоуроками и примерами из практики Узбекистана.</p>
+    <div class="cta-btns">
+      <a href="page1.html" class="btn-primary"><span class="inn">Раздел 1: Личные права →</span></a>
+      <a href="page2.html" class="btn-outline">Раздел 2: Политические</a>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-logo">ПРАВА &amp; СВОБОДЫ · РУз</div>
+    <ul class="footer-nav">
+      <li><a href="page1.html">Личные</a></li>
+      <li><a href="page2.html">Политические</a></li>
+      <li><a href="page3.html">Экономические</a></li>
+      <li><a href="page4.html">Социальные</a></li>
+      <li><a href="page5.html">Гарантии</a></li>
+    </ul>
+    <div class="footer-copy">© 2026 ОГП-Проект<br><span
+        style="opacity:0.5; margin-top:8px; display:inline-block; font-size:11px; letter-spacing:1px;">Сделали:
+        Убайдуллаев Дильшод / Казбулатов Тагир</span></div>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="banner.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="shared.js"></script>
+</body>
+
+</html>
