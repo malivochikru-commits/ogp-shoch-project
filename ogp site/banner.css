@@ -1,0 +1,241 @@
+/* ══════════════════════════════════════════════
+   ANIMATED SECTION BANNER — banner.css
+   Dark layered waves + floating green orbs
+   ══════════════════════════════════════════════ */
+
+.sec-banner {
+  position: relative;
+  width: 100%;
+  height: 220px;
+  overflow: hidden;
+  border-radius: 14px;
+  margin-bottom: 56px;
+  background: #0d1117;
+  box-shadow:
+    0 4px 32px rgba(0,0,0,.6),
+    0 0 0 1px rgba(255,255,255,.04);
+}
+
+/* ── WAVE LAYERS ── */
+.sec-banner__waves {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.sec-banner__wave {
+  position: absolute;
+  left: -10%;
+  width: 120%;
+  border-radius: 50%;
+  transform-origin: center;
+}
+
+/* Wave 1 — darkest base */
+.sec-banner__wave--1 {
+  bottom: -30px;
+  height: 160px;
+  background: #131b24;
+  animation: waveDrift1 9s ease-in-out infinite;
+}
+/* Wave 2 — mid tone */
+.sec-banner__wave--2 {
+  bottom: -10px;
+  height: 130px;
+  background: #0e1620;
+  animation: waveDrift2 11s ease-in-out infinite;
+  opacity: .9;
+}
+/* Wave 3 — lightest foreground */
+.sec-banner__wave--3 {
+  bottom: 12px;
+  height: 100px;
+  background: #111820;
+  animation: waveDrift3 7s ease-in-out infinite;
+  opacity: .85;
+}
+
+@keyframes waveDrift1 {
+  0%,100% { border-radius: 60% 40% 65% 35% / 35% 55% 45% 65%; transform: translateX(0)   scaleY(1); }
+  33%      { border-radius: 40% 60% 35% 65% / 55% 35% 65% 45%; transform: translateX(2%)  scaleY(1.04); }
+  66%      { border-radius: 55% 45% 60% 40% / 40% 60% 40% 60%; transform: translateX(-2%) scaleY(.97); }
+}
+@keyframes waveDrift2 {
+  0%,100% { border-radius: 45% 55% 50% 50% / 50% 45% 55% 50%; transform: translateX(0)   scaleY(1); }
+  40%      { border-radius: 60% 40% 40% 60% / 45% 55% 45% 55%; transform: translateX(-3%) scaleY(1.06); }
+  70%      { border-radius: 35% 65% 60% 40% / 60% 40% 60% 40%; transform: translateX(3%)  scaleY(.95); }
+}
+@keyframes waveDrift3 {
+  0%,100% { border-radius: 50% 50% 45% 55% / 55% 45% 55% 45%; transform: translateX(0)   scaleY(1); }
+  50%      { border-radius: 40% 60% 55% 45% / 45% 55% 45% 55%; transform: translateX(4%)  scaleY(1.08); }
+}
+
+/* ── FLOATING ORBS ── */
+.sec-banner__orb {
+  position: absolute;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 35%,
+    #7cfc00 0%,
+    #4caf50 40%,
+    #2e7d32 75%,
+    rgba(0,80,0,.3) 100%);
+  box-shadow:
+    0 6px 24px rgba(76,175,80,.55),
+    0 0 12px rgba(124,252,0,.3),
+    inset 0 -4px 12px rgba(0,0,0,.4),
+    inset 0 4px 8px rgba(255,255,255,.25);
+  pointer-events: none;
+}
+
+/* Individual orb sizes & positions */
+.sec-banner__orb--1 {
+  width: 52px; height: 52px;
+  top: 18%; left: 8%;
+  animation: orbFloat1 6s ease-in-out infinite;
+}
+.sec-banner__orb--2 {
+  width: 28px; height: 28px;
+  top: 30%; left: 30%;
+  animation: orbFloat2 8s ease-in-out infinite;
+  opacity: .85;
+}
+.sec-banner__orb--3 {
+  width: 40px; height: 40px;
+  top: 14%; right: 22%;
+  animation: orbFloat3 7s ease-in-out infinite;
+}
+.sec-banner__orb--4 {
+  width: 22px; height: 22px;
+  bottom: 28%; right: 10%;
+  animation: orbFloat4 9s ease-in-out infinite;
+  opacity: .75;
+}
+.sec-banner__orb--5 {
+  width: 16px; height: 16px;
+  top: 20%; left: 55%;
+  animation: orbFloat5 5s ease-in-out infinite;
+  opacity: .6;
+}
+.sec-banner__orb--6 {
+  width: 34px; height: 34px;
+  bottom: 15%; left: 48%;
+  animation: orbFloat1 10s ease-in-out infinite reverse;
+  opacity: .7;
+}
+
+/* Orb bounce animations */
+@keyframes orbFloat1 {
+  0%,100% { transform: translateY(0)    rotate(0deg); }
+  30%      { transform: translateY(-18px) rotate(8deg); }
+  60%      { transform: translateY(-8px)  rotate(-4deg); }
+}
+@keyframes orbFloat2 {
+  0%,100% { transform: translateY(0)    scale(1); }
+  40%      { transform: translateY(-22px) scale(1.08); }
+  70%      { transform: translateY(-6px)  scale(.95); }
+}
+@keyframes orbFloat3 {
+  0%,100% { transform: translateY(0)    rotate(-5deg); }
+  50%      { transform: translateY(-14px) rotate(5deg); }
+}
+@keyframes orbFloat4 {
+  0%,100% { transform: translateY(0) translateX(0); }
+  35%      { transform: translateY(-20px) translateX(6px); }
+  65%      { transform: translateY(-10px) translateX(-4px); }
+}
+@keyframes orbFloat5 {
+  0%,100% { transform: translateY(0) scale(1); opacity: .6; }
+  50%      { transform: translateY(-12px) scale(1.15); opacity: 1; }
+}
+
+/* ── STAR PARTICLES ── */
+.sec-banner__stars {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+.sec-banner__star {
+  position: absolute;
+  width: 2px; height: 2px;
+  background: rgba(255,255,255,.6);
+  border-radius: 50%;
+  animation: starTwinkle var(--dur,3s) ease-in-out infinite var(--delay,0s);
+}
+@keyframes starTwinkle {
+  0%,100% { opacity: .2; transform: scale(1); }
+  50%      { opacity: 1;  transform: scale(1.8); }
+}
+
+/* ── CROWN ICON ── */
+.sec-banner__crown {
+  position: absolute;
+  bottom: 18px;
+  left: 18px;
+  font-size: 28px;
+  line-height: 1;
+  filter: drop-shadow(0 2px 8px rgba(255,200,0,.5));
+  animation: crownPulse 4s ease-in-out infinite;
+  user-select: none;
+  pointer-events: none;
+}
+@keyframes crownPulse {
+  0%,100% { transform: scale(1)    rotate(-2deg); filter: drop-shadow(0 2px 8px rgba(255,200,0,.5)); }
+  50%      { transform: scale(1.12) rotate(3deg);  filter: drop-shadow(0 4px 18px rgba(255,200,0,.9)); }
+}
+
+/* ── SCAN LINE OVERLAY ── */
+.sec-banner::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 10;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 3px,
+    rgba(0,0,0,.08) 3px,
+    rgba(0,0,0,.08) 4px
+  );
+  pointer-events: none;
+  border-radius: 14px;
+}
+
+/* ── INNER GLOW VIGNETTE ── */
+.sec-banner::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 9;
+  border-radius: 14px;
+  box-shadow: inset 0 0 80px rgba(0,0,0,.55);
+  pointer-events: none;
+}
+
+/* ── TITLE TEXT INSIDE BANNER (optional) ── */
+.sec-banner__title {
+  position: absolute;
+  z-index: 20;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(28px, 4vw, 56px);
+  letter-spacing: 6px;
+  color: rgba(255,255,255,.08);
+  white-space: nowrap;
+  pointer-events: none;
+  user-select: none;
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 960px) {
+  .sec-banner { height: 170px; margin-bottom: 40px; }
+  .sec-banner__orb--1 { width: 38px; height: 38px; }
+  .sec-banner__orb--3 { width: 30px; height: 30px; }
+}
+@media (max-width: 640px) {
+  .sec-banner { height: 130px; margin-bottom: 28px; border-radius: 10px; }
+  .sec-banner__orb--2,
+  .sec-banner__orb--5 { display: none; }
+  .sec-banner__crown { font-size: 22px; }
+}

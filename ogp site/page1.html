@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Личные права и свободы — Права Человека в Узбекистане 2026</title>
+  <meta name="description"
+    content="Личные права и свободы личности по Конституции Узбекистана: право на жизнь, свободу, достоинство и защиту частной жизни">
+  <link rel="stylesheet" href="shared.css">
+  <link rel="stylesheet" href="banner.css">
+  <style>
+    :root {
+      --page-accent: #4f8ef7;
+      --page-accent2: #06d6a0;
+    }
+
+    .hero-accent {
+      color: var(--page-accent2) !important;
+    }
+
+    .rights-showcase {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2px;
+    }
+
+    .right-item {
+      padding: 36px 28px;
+      background: rgba(255, 255, 255, .02);
+      border: 1px solid var(--border2);
+      position: relative;
+      overflow: hidden;
+      transition: background .4s, border-color .4s;
+    }
+
+    .right-item::after {
+      content: attr(data-icon);
+      position: absolute;
+      bottom: -10px;
+      right: 14px;
+      font-size: 74px;
+      opacity: .05;
+      transition: opacity .4s, transform .4s;
+      line-height: 1;
+      user-select: none;
+    }
+
+    .right-item:hover {
+      background: rgba(6, 214, 160, .04);
+      border-color: rgba(6, 214, 160, .2);
+    }
+
+    .right-item:hover::after {
+      opacity: .1;
+      transform: scale(1.1) translateY(-8px);
+    }
+
+    .right-item-num {
+      font-family: 'Bebas Neue';
+      font-size: 10px;
+      letter-spacing: 4px;
+      color: var(--rust);
+      margin-bottom: 9px;
+    }
+
+    .right-item-title {
+      font-family: 'Bebas Neue';
+      font-size: 24px;
+      letter-spacing: 1px;
+      color: var(--paper);
+      margin-bottom: 10px;
+      line-height: 1.1;
+    }
+
+    .right-item-text {
+      font-size: 13px;
+      line-height: 1.8;
+      color: var(--fog2);
+    }
+  </style>
+</head>
+
+<body>
+  <canvas id="bg-canvas"></canvas>
+  <div class="cursor-dot" id="cdot"></div>
+  <div class="cursor-ring" id="cring"></div>
+  <div class="page-transition" id="page-transition"></div>
+
+  <div id="preloader">
+    <div class="pre-label">Личные права</div>
+    <div class="pre-num" id="pre-num">0</div>
+    <div class="pre-bar">
+      <div class="pre-fill" id="pre-fill"></div>
+    </div>
+    <div class="pre-tagline">Раздел 01</div>
+    <div class="pre-credits" style="font-family: 'Space Mono', monospace; font-size: 10px; letter-spacing: 2px; color: rgba(255,255,255,0.5); margin-top: 20px; text-transform: uppercase; text-align: center;">Сделали: Убайдуллаев Дильшод / Казбулатов Тагир</div>
+  </div>
+
+  <nav id="main-nav">
+    <a class="nav-logo" href="index.html">
+      <div class="nav-logo-dot"></div>ПРАВА &amp; СВОБОДЫ
+    </a>
+    <ul class="nav-links">
+      <li><a href="page1.html" class="active">Личные</a></li>
+      <li><a href="page2.html">Политические</a></li>
+      <li><a href="page3.html">Экономические</a></li>
+      <li><a href="page4.html">Социальные</a></li>
+      <li><a href="page5.html">Гарантии</a></li>
+    </ul>
+    <button class="nav-burger" id="nav-burger" aria-label="Меню"><span></span><span></span><span></span></button>
+  </nav>
+  <div class="nav-mobile" id="nav-mobile">
+    <button class="nav-close" id="nav-close">✕</button>
+    <a href="index.html">Главная</a><a href="page1.html">Личные права</a>
+    <a href="page2.html">Политические</a><a href="page3.html">Экономические</a>
+    <a href="page4.html">Социальные</a><a href="page5.html">Гарантии</a>
+  </div>
+
+  <!-- HERO -->
+  <section class="page-hero">
+    <div class="hero-orb hero-orb-1" style="background:radial-gradient(circle,rgba(6,214,160,.15) 0%,transparent 70%);">
+    </div>
+    <div class="hero-orb hero-orb-2"></div>
+    <div class="hero-number">01</div>
+    <div style="position:relative;z-index:2;max-width:820px;">
+      <div class="hero-eyebrow"><span class="badge">РАЗДЕЛ 01 · КОНСТИТУЦИЯ РУз · СТ. 25–35</span> Личные права</div>
+      <h1 class="hero-title">
+        <span class="line"><span class="glitch" data-text="ЛИЧНЫЕ">ЛИЧНЫЕ</span></span>
+        <span class="line"><span class="em">права и</span></span>
+        <span class="line hero-accent">СВОБОДЫ</span>
+      </h1>
+      <p class="hero-desc">Личные права — ядро правового статуса человека. Они защищают твою жизнь, достоинство, свободу
+        и частную жизнь от вмешательства государства. Закреплены в Конституции Узбекистана 1992 года (ред. 2023).</p>
+      <div class="hero-btns">
+        <a href="#rights-list" class="btn-primary"><span class="inn">Перейти к правам ↓</span></a>
+        <a href="page2.html" class="btn-outline">Следующий раздел →</a>
+      </div>
+    </div>
+    <div class="hero-scroll">Скролл</div>
+  </section>
+
+  <div class="marquee-strip">
+    <div class="marquee-track">
+      <div class="marquee-item">Право на жизнь</div>
+      <div class="marquee-item">Личная свобода</div>
+      <div class="marquee-item">Свобода совести</div>
+      <div class="marquee-item">Неприкосновенность жилища</div>
+      <div class="marquee-item">Честь и достоинство</div>
+      <div class="marquee-item">Частная жизнь</div>
+      <div class="marquee-item">Свобода передвижения</div>
+      <div class="marquee-item">Право на жизнь</div>
+      <div class="marquee-item">Личная свобода</div>
+      <div class="marquee-item">Свобода совести</div>
+      <div class="marquee-item">Неприкосновенность жилища</div>
+      <div class="marquee-item">Честь и достоинство</div>
+      <div class="marquee-item">Частная жизнь</div>
+      <div class="marquee-item">Свобода передвижения</div>
+    </div>
+  </div>
+
+  <!-- INTRO -->
+  <section style="background:#06060e;">
+    <div class="sec-banner" data-title="ОСНОВА"></div>
+    <div class="big-text-row">
+      <div class="big-text-left">
+        <div class="sec-header">
+          <div class="sec-label"><span class="num">01</span> Основа основ</div>
+          <h2 class="sec-title">Что такое<br><em>личные права?</em></h2>
+        </div>
+        <div class="body-text">
+          <p>Личные права — это <strong>фундаментальные права человека</strong>, обеспечивающие свободу и автономию
+            личности. Они защищают человека прежде всего от произвола государственной власти и других людей.</p>
+          <p>В отличие от политических прав, личные права <strong>не связаны с гражданством</strong> — они принадлежат
+            каждому человеку на территории Узбекистана, независимо от национальности, пола, возраста или социального
+            положения.</p>
+          <p>Конституция Республики Узбекистан (с поправками 2023 года) закрепляет широкий спектр личных прав в
+            <strong>Главе II, статьях 25–35</strong>. Узбекистан ратифицировал ключевые международные пакты ООН,
+            дополнительно расширяющие эти гарантии.</p>
+        </div>
+      </div>
+      <div class="big-text-right">
+        <div class="highlight-box">
+          <p><strong>Ключевой принцип:</strong> Личные права носят абсолютный характер. Даже в чрезвычайных ситуациях
+            запрещены пытки, бесчеловечное обращение и произвольное лишение жизни.</p>
+        </div>
+        <div class="stat-grid" style="margin:24px 0 0;">
+          <div class="stat-item">
+            <div class="stat-val">11</div>
+            <div class="stat-desc">Статей Конституции РУз</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-val">7<sup>+</sup></div>
+            <div class="stat-desc">Ключевых свобод</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- QUOTE -->
+  <section style="background:#040408;padding:80px 56px;">
+    <div class="quote-block" style="max-width:820px;margin:0 auto;">
+      <p>«Никто не может быть подвергнут пыткам, насилию, другому жестокому, бесчеловечному или унижающему достоинство
+        обращению»</p>
+      <cite>— Конституция РУз, статья 28</cite>
+    </div>
+  </section>
+
+  <!-- RIGHTS LIST -->
+  <section id="rights-list" style="background:#06060e;">
+    <div class="sec-banner" data-title="ЛИЧНЫЕ ПРАВА"></div>
+    <div class="sec-header">
+      <div class="sec-label"><span class="num">02</span> Ваши права</div>
+      <h2 class="sec-title">Семь<br><em>ключевых прав</em></h2>
+      <p class="sec-sub">Каждое из этих прав гарантировано Конституцией Узбекистана и подкреплено механизмами
+        государственной защиты.</p>
+    </div>
+    <div class="rights-showcase">
+      <div class="right-item" data-icon="❤️">
+        <div class="right-item-num">ПРАВО №1 · СТ. 25</div>
+        <div class="right-item-title">Право на жизнь</div>
+        <div class="right-item-text">Каждый человек имеет неотъемлемое право на жизнь и защиту государства от
+          посягательств на неё. Никто не может быть произвольно лишён жизни. В Узбекистане действует мораторий на
+          смертную казнь, закреплённый законодательно.</div>
+      </div>
+      <div class="right-item" data-icon="🧠">
+        <div class="right-item-num">ПРАВО №2 · СТ. 28</div>
+        <div class="right-item-title">Достоинство личности</div>
+        <div class="right-item-text">Достоинство человека неприкосновенно и охраняется государством. Никто не должен
+          подвергаться пыткам, насилию или унизительному обращению. Без добровольного согласия никого нельзя подвергать
+          медицинским или иным опытам.</div>
+      </div>
+      <div class="right-item" data-icon="🔓">
+        <div class="right-item-num">ПРАВО №3 · СТ. 27</div>
+        <div class="right-item-title">Личная неприкосновенность</div>
+        <div class="right-item-text">Никто не может быть подвергнут аресту или задержанию иначе как на законных
+          основаниях. До судебного приговора лицо не может считаться виновным в совершении преступления. Задержание без
+          санкции прокурора — не более 48 часов.</div>
+      </div>
+      <div class="right-item" data-icon="🏠">
+        <div class="right-item-num">ПРАВО №4 · СТ. 32</div>
+        <div class="right-item-title">Неприкосновенность жилища</div>
+        <div class="right-item-text">Жилище неприкосновенно. Никто не вправе без законного основания войти в жилище
+          против воли проживающих в нём лиц. Обыск и иные следственные действия в жилище производятся только на
+          основании решения суда.</div>
+      </div>
+      <div class="right-item" data-icon="🔒">
+        <div class="right-item-num">ПРАВО №5 · СТ. 30</div>
+        <div class="right-item-title">Частная жизнь</div>
+        <div class="right-item-text">Каждый имеет право на неприкосновенность частной жизни, личную и семейную тайну,
+          защиту чести и репутации. Сбор, хранение, использование и распространение информации о частной жизни — только
+          с согласия человека или по решению суда.</div>
+      </div>
+      <div class="right-item" data-icon="✉️">
+        <div class="right-item-num">ПРАВО №6 · СТ. 31</div>
+        <div class="right-item-title">Тайна переписки</div>
+        <div class="right-item-text">Гарантируется тайна переписки, телефонных переговоров, почтовых, телеграфных и иных
+          сообщений. Ограничение этого права допускается лишь в случаях и порядке, прямо предусмотренных законом, —
+          только по решению суда.</div>
+      </div>
+      <div class="right-item" data-icon="✈️">
+        <div class="right-item-num">ПРАВО №7 · СТ. 33</div>
+        <div class="right-item-title">Свобода передвижения</div>
+        <div class="right-item-text">Каждый, кто законно находится на территории Узбекистана, вправе свободно
+          передвигаться по территории страны, выбирать место жительства. Гражданин вправе выезжать за пределы страны и
+          беспрепятственно возвращаться обратно.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TIMELINE -->
+  <section style="background:var(--ink);">
+    <div class="sec-header">
+      <div class="sec-label"><span class="num">03</span> На практике</div>
+      <h2 class="sec-title">Как это<br><em>работает</em></h2>
+    </div>
+    <div class="timeline">
+      <div class="tl-item">
+        <div class="tl-dot-wrap">
+          <div class="tl-dot"></div>
+        </div>
+        <div>
+          <div class="tl-label">Задержание полицией</div>
+          <div class="tl-head">Если вас задержала полиция</div>
+          <div class="tl-sub">Статья 27 Конституции · УПК РУз</div>
+          <div class="tl-body">Полиция обязана назвать причину задержания незамедлительно. Без санкции прокурора или
+            суда — не более 48 часов. Вы имеете право на адвоката с первого момента задержания. Вы вправе не
+            свидетельствовать против себя и своих близких родственников. Молчание — это законное право, не преступление.
+          </div>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot-wrap">
+          <div class="tl-dot"></div>
+        </div>
+        <div>
+          <div class="tl-label">Обыск</div>
+          <div class="tl-head">Неприкосновенность вашего дома</div>
+          <div class="tl-sub">Статья 32 Конституции РУз</div>
+          <div class="tl-body">Обыск в жилище проводится только на основании решения суда (с 2023 г., поправки к
+            Конституции). Сотрудники обязаны предъявить судебное решение. Вы вправе присутствовать при обыске и иметь
+            адвоката. Нарушение этих правил делает доказательства недопустимыми.</div>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot-wrap">
+          <div class="tl-dot"></div>
+        </div>
+        <div>
+          <div class="tl-label">Свобода совести</div>
+          <div class="tl-head">Религиозные убеждения</div>
+          <div class="tl-sub">Статья 35 Конституции РУз</div>
+          <div class="tl-body">Каждый сам решает, во что верить — государство не вправе принуждать. Узбекистан —
+            светское государство: ни одна религия не объявляется государственной. Нельзя принуждать к участию в
+            религиозных объединениях или отказу от них.</div>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot-wrap">
+          <div class="tl-dot"></div>
+        </div>
+        <div>
+          <div class="tl-label">Защита от пыток</div>
+          <div class="tl-head">Абсолютный запрет</div>
+          <div class="tl-sub">Статья 28 Конституции · Конвенция ООН против пыток</div>
+          <div class="tl-body">Узбекистан ратифицировал Конвенцию ООН против пыток. Показания, полученные под
+            принуждением, недопустимы в суде. Применение силы сотрудниками полиции уголовно наказуемо. В 2026 году в
+            Узбекистане действуют усиленные механизмы мониторинга мест лишения свободы.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- VIDEOS -->
+
+
+  <!-- STATS -->
+  <section style="background:var(--ink);padding:80px 56px;">
+    <div class="stat-grid">
+      <div class="stat-item">
+        <div class="stat-val">48</div>
+        <div class="stat-desc">Часов макс. задержания без суда</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-val">2023</div>
+        <div class="stat-desc">Год обновления Конституции РУз</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-val">0</div>
+        <div class="stat-desc">Смертных казней (мораторий)</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-val">7<sup>+</sup></div>
+        <div class="stat-desc">Договоров ООН ратифицировано</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PAGE NAV -->
+  <section
+    style="background:#040408;padding:56px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:20px;border-top:1px solid var(--border2);">
+    <a href="index.html" class="btn-outline">← Главная</a>
+    <div style="text-align:center;">
+      <div style="font-size:9px;letter-spacing:5px;text-transform:uppercase;color:var(--fog);margin-bottom:6px;">
+        Следующий раздел</div>
+      <div style="font-family:'Bebas Neue';font-size:20px;letter-spacing:2px;color:var(--paper);">Политические права
+      </div>
+    </div>
+    <a href="page2.html" class="btn-primary"><span class="inn">Раздел 02 →</span></a>
+  </section>
+
+  <footer>
+    <div class="footer-logo">ПРАВА &amp; СВОБОДЫ · РУз</div>
+    <ul class="footer-nav">
+      <li><a href="page1.html">Личные</a></li>
+      <li><a href="page2.html">Политические</a></li>
+      <li><a href="page3.html">Экономические</a></li>
+      <li><a href="page4.html">Социальные</a></li>
+      <li><a href="page5.html">Гарантии</a></li>
+    </ul>
+    <div class="footer-copy">© 2026 ОГП-Проект<br><span style="opacity:0.5; margin-top:8px; display:inline-block; font-size:11px; letter-spacing:1px;">Сделали: Убайдуллаев Дильшод / Казбулатов Тагир</span></div>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="banner.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="shared.js"></script>
+  <script>
+    window.addEventListener('load', function () {
+      setTimeout(function () {
+        gsap.utils.toArray('.right-item').forEach(function (el, i) {
+          gsap.from(el, { scrollTrigger: { trigger: el, start: 'top 88%' }, y: 50, opacity: 0, scale: .97, duration: .7, ease: 'expo.out', delay: (i % 4) * .1 });
+        });
+      }, 200);
+    });
+  </script>
+</body>
+
+</html>

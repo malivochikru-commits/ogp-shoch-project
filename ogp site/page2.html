@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Политические права — Права Человека в Узбекистане 2026</title>
+  <meta name="description"
+    content="Политические права граждан Узбекистана: право голосовать, участвовать в управлении, свобода слова, собраний и объединений">
+  <link rel="stylesheet" href="shared.css">
+  <link rel="stylesheet" href="banner.css">
+  <style>
+    .pol-hero-accent {
+      color: #a855f7 !important;
+    }
+
+    .vote-visual {
+      padding: 48px;
+      position: relative;
+      overflow: hidden;
+      background: linear-gradient(135deg, #0a0a16, #120820);
+      border: 1px solid rgba(168, 85, 247, .15);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 260px;
+    }
+
+    .vote-visual-bg {
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 50% 50%, rgba(168, 85, 247, .12) 0%, transparent 65%);
+    }
+
+    .vote-icon {
+      font-size: 100px;
+      position: relative;
+      z-index: 2;
+      animation: iconFloat 5s ease-in-out infinite;
+      filter: drop-shadow(0 0 28px rgba(168, 85, 247, .5));
+    }
+
+    @keyframes iconFloat {
+
+      0%,
+      100% {
+        transform: translateY(0)
+      }
+
+      50% {
+        transform: translateY(-14px)
+      }
+    }
+
+    .pol-card {
+      padding: 36px 28px;
+      background: rgba(255, 255, 255, .02);
+      border: 1px solid rgba(168, 85, 247, .1);
+      position: relative;
+      transition: background .4s, border-color .4s, transform .3s;
+    }
+
+    .pol-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background: linear-gradient(90deg, #a855f7, #f97316);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform .5s cubic-bezier(.77, 0, .18, 1);
+    }
+
+    .pol-card:hover {
+      border-color: rgba(168, 85, 247, .3);
+      background: rgba(168, 85, 247, .04);
+      transform: translateY(-4px);
+    }
+
+    .pol-card:hover::before {
+      transform: scaleX(1);
+    }
+
+    .pol-card-icon {
+      font-size: 36px;
+      margin-bottom: 14px;
+    }
+
+    .pol-card-num {
+      font-size: 9px;
+      letter-spacing: 4px;
+      color: var(--rust);
+      margin-bottom: 8px;
+      font-family: 'Bebas Neue';
+    }
+
+    .pol-card-title {
+      font-family: 'Bebas Neue';
+      font-size: 24px;
+      color: var(--paper);
+      margin-bottom: 10px;
+    }
+
+    .pol-card-text {
+      font-size: 13px;
+      line-height: 1.8;
+      color: var(--fog2);
+    }
+  </style>
+</head>
+
+<body>
+  <canvas id="bg-canvas"></canvas>
+  <div class="cursor-dot" id="cdot"></div>
+  <div class="cursor-ring" id="cring"></div>
+  <div class="page-transition" id="page-transition"></div>
+
+  <div id="preloader">
+    <div class="pre-label">Политические права</div>
+    <div class="pre-num" id="pre-num">0</div>
+    <div class="pre-bar">
+      <div class="pre-fill" id="pre-fill"></div>
+    </div>
+    <div class="pre-tagline">Раздел 02</div>
+    <div class="pre-credits" style="font-family: 'Space Mono', monospace; font-size: 10px; letter-spacing: 2px; color: rgba(255,255,255,0.5); margin-top: 20px; text-transform: uppercase; text-align: center;">Сделали: Убайдуллаев Дильшод / Казбулатов Тагир</div>
+  </div>
+
+  <nav id="main-nav">
+    <a class="nav-logo" href="index.html">
+      <div class="nav-logo-dot"></div>ПРАВА &amp; СВОБОДЫ
+    </a>
+    <ul class="nav-links">
+      <li><a href="page1.html">Личные</a></li>
+      <li><a href="page2.html" class="active">Политические</a></li>
+      <li><a href="page3.html">Экономические</a></li>
+      <li><a href="page4.html">Социальные</a></li>
+      <li><a href="page5.html">Гарантии</a></li>
+    </ul>
+    <button class="nav-burger" id="nav-burger" aria-label="Меню"><span></span><span></span><span></span></button>
+  </nav>
+  <div class="nav-mobile" id="nav-mobile">
+    <button class="nav-close" id="nav-close">✕</button>
+    <a href="index.html">Главная</a><a href="page1.html">Личные права</a>
+    <a href="page2.html">Политические</a><a href="page3.html">Экономические</a>
+    <a href="page4.html">Социальные</a><a href="page5.html">Гарантии</a>
+  </div>
+
+  <section class="page-hero">
+    <div class="hero-orb hero-orb-1"
+      style="background:radial-gradient(circle,rgba(168,85,247,.18) 0%,transparent 70%);"></div>
+    <div class="hero-orb hero-orb-2" style="background:radial-gradient(circle,rgba(249,115,22,.1) 0%,transparent 70%);">
+    </div>
+    <div class="hero-number" style="color:rgba(168,85,247,.04);">02</div>
+    <div style="position:relative;z-index:2;max-width:1200px;">
+      <div class="hero-eyebrow"><span class="badge">РАЗДЕЛ 02 · КОНСТИТУЦИЯ РУз · СТ. 36–43</span> Политические права
+      </div>
+      <h1 class="hero-title">
+        <span class="line"><span class="glitch" data-text="ПОЛИТИЧЕСКИЕ">ПОЛИТИЧЕСКИЕ</span></span>
+        <span class="line"><span class="em">права</span></span>
+        <span class="line pol-hero-accent">ГРАЖДАН</span>
+      </h1>
+      <p class="hero-desc">Политические права позволяют гражданам Узбекистана участвовать в управлении государством:
+        голосовать, создавать партии, выражать мнение, собираться и объединяться. Это инструменты народовластия.</p>
+      <div class="hero-btns">
+        <a href="#pol-rights" class="btn-primary" style="background:#a855f7;"><span class="inn">К списку прав
+            ↓</span></a>
+        <a href="page3.html" class="btn-outline">Следующий раздел →</a>
+      </div>
+    </div>
+    <div class="hero-scroll">Скролл</div>
+  </section>
+
+  <div class="marquee-strip">
+    <div class="marquee-track">
+      <div class="marquee-item">Право голоса</div>
+      <div class="marquee-item">Свобода слова</div>
+      <div class="marquee-item">Свобода собраний</div>
+      <div class="marquee-item">Свобода объединений</div>
+      <div class="marquee-item">Право на референдум</div>
+      <div class="marquee-item">Петиции</div>
+      <div class="marquee-item">Многопартийность</div>
+      <div class="marquee-item">Право голоса</div>
+      <div class="marquee-item">Свобода слова</div>
+      <div class="marquee-item">Свобода собраний</div>
+      <div class="marquee-item">Свобода объединений</div>
+      <div class="marquee-item">Право на референдум</div>
+      <div class="marquee-item">Петиции</div>
+      <div class="marquee-item">Многопартийность</div>
+    </div>
+  </div>
+
+  <section style="background:#09060f;">
+    <div class="sec-banner" data-title="НАРОДОВЛАСТИЕ"></div>
+    <div class="big-text-row">
+      <div class="big-text-left">
+        <div class="sec-header">
+          <div class="sec-label"><span class="num">01</span> Народовластие</div>
+          <h2 class="sec-title">Ты часть<br><em>государства</em></h2>
+        </div>
+        <div class="body-text">
+          <p>Политические права — права граждан на <strong>участие в политической жизни страны</strong>. В отличие от
+            личных прав, они принадлежат именно гражданам Узбекистана.</p>
+          <p>Конституция РУз (ст. 3) провозглашает: <strong>единственным источником государственной власти является
+              народ Узбекистана</strong>. Политические права — главный инструмент реализации этого принципа.</p>
+          <p>Реформы 2016–2026 годов существенно расширили политические права граждан: <strong>выборы стали более
+              конкурентными</strong>, сроки ответа на обращения сокращены, роль парламента усилена.</p>
+        </div>
+      </div>
+      <div class="big-text-right">
+        <div class="vote-visual">
+          <div class="vote-visual-bg"></div>
+          <div class="vote-icon">🗳️</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section style="background:#050309;padding:80px 56px;">
+    <div class="quote-block" style="max-width:820px;margin:0 auto;border-left-color:#a855f7;">
+      <p>«Граждане Республики Узбекистан имеют право участвовать в управлении делами общества и государства как
+        непосредственно, так и через своих представителей»</p>
+      <cite>— Конституция РУз, статья 36</cite>
+    </div>
+  </section>
+
+  <section id="pol-rights" style="background:#09060f;">
+    <div class="sec-banner" data-title="ПОЛИТИЧЕСКИЕ ПРАВА"></div>
+    <div class="sec-header">
+      <div class="sec-label"><span class="num">02</span> Ваши права</div>
+      <h2 class="sec-title">Шесть<br><em>политических прав</em></h2>
+      <p class="sec-sub">Эти права гарантированы Конституцией РУз 1992 года (редакция 2023) каждому гражданину
+        Узбекистана.</p>
+    </div>
+    <div class="grid-3">
+      <div class="pol-card">
+        <div class="pol-card-icon">🗳️</div>
+        <div class="pol-card-num">ПРАВО №1 · СТ. 36</div>
+        <div class="pol-card-title">Избирательное право</div>
+        <div class="pol-card-text">Граждане имеют право избирать и быть избранными. Активное избирательное право — с 18
+          лет. Выборы: всеобщие, равные, прямые — при тайном голосовании. Нарушение тайны голосования уголовно
+          наказуемо.</div>
+      </div>
+      <div class="pol-card">
+        <div class="pol-card-icon">📢</div>
+        <div class="pol-card-num">ПРАВО №2 · СТ. 39</div>
+        <div class="pol-card-title">Свобода слова и мнений</div>
+        <div class="pol-card-text">Каждый вправе свободно выражать свои убеждения и взгляды. Никто не может быть
+          преследуем за убеждения. Свобода слова гарантирована — ограничения допустимы лишь законом и лишь для защиты
+          прав других людей.</div>
+      </div>
+      <div class="pol-card">
+        <div class="pol-card-icon">🤝</div>
+        <div class="pol-card-num">ПРАВО №3 · СТ. 41</div>
+        <div class="pol-card-title">Свобода объединений</div>
+        <div class="pol-card-text">Граждане вправе создавать политические партии, профсоюзы и другие объединения. Никто
+          не может быть принуждён к членству. Запрещены лишь организации, посягающие на конституционный строй или
+          разжигающие национальную рознь.</div>
+      </div>
+      <div class="pol-card">
+        <div class="pol-card-icon">🏛️</div>
+        <div class="pol-card-num">ПРАВО №4 · СТ. 40</div>
+        <div class="pol-card-title">Свобода собраний</div>
+        <div class="pol-card-text">Граждане вправе проводить митинги, собрания, демонстрации и пикеты в порядке,
+          установленном законом. Мирные собрания находятся под защитой государства. Разгон мирной демонстрации —
+          нарушение Конституции.</div>
+      </div>
+      <div class="pol-card">
+        <div class="pol-card-icon">📝</div>
+        <div class="pol-card-num">ПРАВО №5 · СТ. 43</div>
+        <div class="pol-card-title">Право обращений</div>
+        <div class="pol-card-text">Граждане вправе обращаться в государственные органы лично и коллективно.
+          Государственные органы обязаны рассмотреть обращение в установленные законом сроки и дать мотивированный
+          ответ. Портал my.gov.uz — удобный онлайн-канал.</div>
+      </div>
+      <div class="pol-card">
+        <div class="pol-card-icon">📰</div>
+        <div class="pol-card-num">ПРАВО №6 · СТ. 39</div>
+        <div class="pol-card-title">Свобода печати и СМИ</div>
+        <div class="pol-card-text">Гарантируется свобода печати и других средств массовой информации. Цензура не
+          допускается. СМИ вправе свободно получать и распространять информацию, критиковать деятельность
+          государственных органов.</div>
+      </div>
+    </div>
+  </section>
+
+  <section style="background:var(--ink);">
+    <div class="sec-header">
+      <div class="sec-label"><span class="num">03</span> На практике</div>
+      <h2 class="sec-title">Как реализовать<br><em>политические права</em></h2>
+    </div>
+    <div class="timeline">
+      <div class="tl-item">
+        <div class="tl-dot-wrap">
+          <div class="tl-dot" style="border-color:#a855f7;"></div>
+        </div>
+        <div>
+          <div class="tl-label" style="color:#a855f7;">Выборы</div>
+          <div class="tl-head">Как участвовать в выборах</div>
+          <div class="tl-sub">Статья 36 · Избирательный кодекс РУз</div>
+          <div class="tl-body">Право голоса — с 18 лет. Регистрация на избирательном участке по месту прописки или
+            временного проживания. Паспорт или биометрический документ — для идентификации. За давление на избирателей —
+            уголовная ответственность. В 2022–2026 гг. Узбекистан провёл внеочередные президентские и парламентские
+            выборы.</div>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot-wrap">
+          <div class="tl-dot" style="border-color:#a855f7;"></div>
+        </div>
+        <div>
+          <div class="tl-label" style="color:#a855f7;">Митинги</div>
+          <div class="tl-head">Право на мирный протест</div>
+          <div class="tl-sub">Статья 40 · Закон о собраниях РУз</div>
+          <div class="tl-body">Организаторы уведомляют хокимият (местную администрацию) о проведении публичного
+            мероприятия заблаговременно. Власти обязаны обеспечить безопасность участников. Полиция не вправе без
+            оснований разгонять мирное собрание граждан.</div>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot-wrap">
+          <div class="tl-dot" style="border-color:#a855f7;"></div>
+        </div>
+        <div>
+          <div class="tl-label" style="color:#a855f7;">Обращения</div>
+          <div class="tl-head">Петиции и обращения</div>
+          <div class="tl-sub">Статья 43 · Закон об обращениях физических и юридических лиц</div>
+          <div class="tl-body">Обращение можно подать через портал my.gov.uz, лично или по почте. Государственный орган
+            обязан дать ответ в течение 30 дней. Жалобу на бездействие чиновника можно подать в вышестоящий орган или
+            суд. Уполномоченный по правам человека — специальный канал.</div>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot-wrap">
+          <div class="tl-dot" style="border-color:#a855f7;"></div>
+        </div>
+        <div>
+          <div class="tl-label" style="color:#a855f7;">Реформы 2026</div>
+          <div class="tl-head">Новые политические свободы</div>
+          <div class="tl-sub">Конституция 2023 · Реформы Президента Мирзиёева</div>
+          <div class="tl-body">С 2016 по 2026 год Узбекистан провёл масштабные политические реформы: конституционные
+            поправки 2023 года значительно расширили права граждан, укрепили независимость парламента и судов, ввели
+            новые инструменты прямой демократии — народные инициативы и референдумы.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+
+  <section style="background:#050309;padding:80px 56px;">
+    <div class="stat-grid">
+      <div class="stat-item">
+        <div class="stat-val" style="color:#a855f7;">18</div>
+        <div class="stat-desc">Лет — возраст активного избирательного права</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-val" style="color:#a855f7;">30</div>
+        <div class="stat-desc">Дней срок ответа госоргана на обращение</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-val" style="color:#a855f7;">2023</div>
+        <div class="stat-desc">Год обновления Конституции РУз</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-val" style="color:#a855f7;">5</div>
+        <div class="stat-desc">Политических партий в парламенте</div>
+      </div>
+    </div>
+  </section>
+
+  <section
+    style="background:#040408;padding:56px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:20px;border-top:1px solid var(--border2);">
+    <a href="page1.html" class="btn-outline">← Личные права</a>
+    <div style="text-align:center;">
+      <div style="font-size:9px;letter-spacing:5px;text-transform:uppercase;color:var(--fog);margin-bottom:6px;">
+        Следующий раздел</div>
+      <div style="font-family:'Bebas Neue';font-size:20px;letter-spacing:2px;color:var(--paper);">Экономические и
+        культурные права</div>
+    </div>
+    <a href="page3.html" class="btn-primary" style="background:#a855f7;"><span class="inn">Раздел 03 →</span></a>
+  </section>
+
+  <footer>
+    <div class="footer-logo">ПРАВА &amp; СВОБОДЫ · РУз</div>
+    <ul class="footer-nav">
+      <li><a href="page1.html">Личные</a></li>
+      <li><a href="page2.html">Политические</a></li>
+      <li><a href="page3.html">Экономические</a></li>
+      <li><a href="page4.html">Социальные</a></li>
+      <li><a href="page5.html">Гарантии</a></li>
+    </ul>
+    <div class="footer-copy">© 2026 ОГП-Проект<br><span style="opacity:0.5; margin-top:8px; display:inline-block; font-size:11px; letter-spacing:1px;">Сделали: Убайдуллаев Дильшод / Казбулатов Тагир</span></div>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="banner.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="shared.js"></script>
+  <script>
+    window.addEventListener('load', function () {
+      setTimeout(function () {
+        gsap.utils.toArray('.pol-card').forEach(function (el, i) {
+          gsap.from(el, { scrollTrigger: { trigger: el, start: 'top 88%' }, y: 50, opacity: 0, scale: .97, duration: .7, ease: 'expo.out', delay: (i % 3) * .12 });
+        });
+      }, 200);
+    });
+  </script>
+  <style>
+    .pol-card {
+      text-align: center;
+    }
+  </style>
+</body>
+
+</html>
