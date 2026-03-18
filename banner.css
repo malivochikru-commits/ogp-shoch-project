@@ -225,6 +225,7 @@
   white-space: nowrap;
   pointer-events: none;
   user-select: none;
+  color: #9f9f9f;
 }
 
 /* ── RESPONSIVE ── */
